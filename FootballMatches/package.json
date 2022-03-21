@@ -1,0 +1,22 @@
+{
+  "name": "footballmatches",
+  "version": "1.0.0",
+  "description": "本项目使用TypeScript实现一个足球比赛数据分析并生成报表的程序。",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^17.0.21",
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
