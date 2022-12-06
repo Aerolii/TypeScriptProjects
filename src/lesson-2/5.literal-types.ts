@@ -22,11 +22,11 @@ function rollDice(dice: 1 | 2 | 3): number {
 console.log(rollDice(2)) // 8
 
 // 通过字面量类型实现函数重载
-function sendEvent(name: 'addToCart', data: { productID: number }): void
-function sendEvent(name: 'checkout', data: { count: number }): void
-function sendEvent(name: string, data: unknown): void {
+function sendEventHandle(name: 'addToCart', data: { productID: number }): void
+function sendEventHandle(name: 'checkout', data: { count: number }): void
+function sendEventHandle(name: string, data: unknown): void {
   console.log(`${name} ${JSON.stringify(data)}`)
 }
 
-sendEvent('addToCart', { productID: 1 }) // addToCart {"productID":1}
-sendEvent('checkout', { count: 1 }) // checkout {"count":1}
+sendEventHandle('addToCart', { productID: 1 }) // addToCart {"productID":1}
+sendEventHandle('checkout', { count: 1 }) // checkout {"count":1}
