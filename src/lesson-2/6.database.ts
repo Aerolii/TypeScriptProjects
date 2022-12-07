@@ -31,14 +31,15 @@ class PersisteneMemoryDB extends InMemoryDatabase implements Persistable {
   }
 }
 
-const myDB = new InMemoryDatabase()
-myDB.set('foo', 'foo in db')
-
+const myDB = new PersisteneMemoryDB()
+myDB.set('foo', 'db')
 console.log(myDB.get('foo'))
 
-const pDB = new PersisteneMemoryDB()
-pDB.set('foo', 'foo in db')
+const saved = myDB.saveToString()
 
-const s = pDB.saveToString()
-console.log(s) // {"foo":"foo in db"}
-pDB.restoreFromString(s)
+myDB.set('foo', 'foo1')
+console.log(myDB.get('foo'))
+
+const myDB2 = new PersisteneMemoryDB()
+myDB2.restoreFromString(saved)
+console.log(myDB2.get('foo'))
